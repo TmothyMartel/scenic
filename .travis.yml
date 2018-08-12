@@ -2,4 +2,11 @@ language: node_js
 node_js: node
 cache:
   directories:
-    - node_modules
+  - node_modules
+deploy:
+  provider: heroku
+  api_key:
+    secure: HVBJSvtn9uM+8k4+sSSKCSx1VkGh1+FQiWixOKHOPQoN3OV4P/3hlKqfLzRpFeN4bbtcJKNDhBvYdNoO6s1IVr1CaaNs/GabTr/k5/oPsmapLue3jrf36S69IMFlzMjT0Tgc0fSwvvu1hLqEKf1Ms8Jis67qG4GYbOSHOaGJCFkNCDiWa97+ppnQzNsah4BHzU7teG+u4cr3ONJ2AIgLT6903e9fZk0zVGM9UJwFDXOxpTHFxmVJ9ahMBAjYhIyv6lHLXWtXO8JVj8I8aX3Cn5oMN53dsYw0bXxvJfldA/5S7DvY1iEoEH0thhos1n1igmqmBKXDQHGQbCOBJTj3LBeREZtnfUilPrpsv0MjpillfupzHw5h/V9I3AnXuDbUOzEwjf1LdARwOns68X4Ks/xnF6J3VxQSQr8A9wmyiqyQIw2b9l68cJNlayL0dpmiZ//hSDY8uWI7I32DnvvRwHHmCQxRpgRAyvcscF/LnMGq7OVj6QO//k+kdogpiw/0utWqCeeJvpujY6a5qRBwga2+Acg537ySbJ7Otz+dlm0mzfKNf50iQAht0rdKy2OnoLv99xgjv7FfOHNGdLsxqCc33DuVMmtfWnDDgv/ooecSI4RCjJh0VhUEGYqLVs76+5jHGcugH0O3bTe33M/BujOxwf7rhnUjCCBJq5SLLHA=
+  app: hidden-sea-75061
+  on:
+    repo: TmothyMartel/scenic
