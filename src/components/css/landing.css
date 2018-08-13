@@ -1,0 +1,16 @@
+.hero {
+	background-image: url("../../images/hero-cityscene.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 100%;
+	max-height: 900px;
+	min-height: 350px;
+}
+
+.landing-title {
+	color: #fff;
+	text-align: center;
+	font-size: 36px;
+	margin: 0;
+	padding-top: 150px;
+}

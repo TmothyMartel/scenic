@@ -1,0 +1,26 @@
+.nav {
+	background-color: #353535;
+	height: 45px;
+}
+
+.logo {
+	text-decoration: none;
+	font-family: "Hind", sans-serif;
+	color: #fff;
+	font-size: 18px;
+	letter-spacing: 1px;
+	padding-left: 10px;
+}
+
+.nav-links {
+	text-align: right;
+	list-style: none;
+	display: inline-block;
+}
+
+.link {
+	font-family: "Hind", sans-serif;
+	color: #fff;
+	display: inline;
+	padding: 0 10px;
+}
