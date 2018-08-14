@@ -5,6 +5,7 @@ import { Route, withRouter } from "react-router-dom";
 import NavBar from "./components/nav-bar";
 import Landing from "./components/landing";
 import Profile from "./components/profile";
+import Locations from "./components/locations";
 import { refreshAuthToken } from "./actions/auth";
 
 export class App extends React.Component {
@@ -43,6 +44,7 @@ export class App extends React.Component {
 				<NavBar />
 				<Route exact path="/" component={Landing} />
 				<Route exact path="/profile" component={Profile} />
+				<Route exact path="/locations" component={Locations} />
 			</div>
 		);
 	}

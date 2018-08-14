@@ -5,7 +5,18 @@ import {
 
 const initialState = {
 	data: "",
-	error: null
+	error: null,
+	locations: [
+		{
+			coordinates: {
+				lat: 1234322,
+				long: -3845753
+			},
+			title: "harlem",
+			description: "blah blah",
+			image: ""
+		}
+	]
 };
 
 export default function reducer(state = initialState, action) {
