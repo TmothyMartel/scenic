@@ -1,26 +1,26 @@
 .nav {
+	display: grid;
+	grid-template-columns: 25% 50% 25%;
 	background-color: #353535;
 	height: 45px;
+	text-align: center;
 }
 
 .logo {
+	grid-column: 2;
 	text-decoration: none;
 	font-family: "Hind", sans-serif;
 	color: #fff;
 	font-size: 18px;
 	letter-spacing: 1px;
-	padding-left: 10px;
+	padding-top: 7px;
 }
 
-.nav-links {
-	text-align: right;
-	list-style: none;
-	display: inline-block;
-}
-
-.link {
-	font-family: "Hind", sans-serif;
-	color: #fff;
-	display: inline;
-	padding: 0 10px;
+.menu {
+	grid-column: 3;
+	padding-top: 5px;
+	padding-left: 15px;
+	margin: 0 auto;
+	width: 31px;
+	height: auto;
 }

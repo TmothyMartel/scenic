@@ -3,9 +3,8 @@
 	background-size: cover;
 	background-repeat: no-repeat;
 	width: 100%;
-	height:auto;
-	min-height: 500px
-	
+	height: auto;
+	min-height: 500px;
 }
 
 .landing-title {
@@ -14,4 +13,10 @@
 	font-size: 36px;
 	margin: 0;
 	padding-top: 150px;
+}
+
+.arrow {
+	width: 70px;
+	display: block;
+	margin: 0 auto;
 }

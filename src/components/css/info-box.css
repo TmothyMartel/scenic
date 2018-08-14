@@ -1,3 +1,15 @@
 .card {
-    border: 2px solid #fff;
+	border: 2px solid #fff;
+	color: #fff;
+}
+
+.card p {
+	padding: 10px 20px;
+}
+
+.icon {
+	width: 85px;
+	display: block;
+	margin: 0 auto;
+	padding-top: 15px;
 }
