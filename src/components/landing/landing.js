@@ -1,6 +1,6 @@
 import React from "react";
-import InfoBox from "./info-box";
-import downArrow from "../images/down-arrow.svg";
+import InfoBox from "../info-box";
+import downArrow from "./images/down-arrow.svg";
 import "./css/landing.css";
 export default function Landing(props) {
 	return (

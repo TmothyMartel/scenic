@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Route, withRouter } from "react-router-dom";
 
 import NavBar from "./components/nav-bar";
-import Landing from "./components/landing";
+import Landing from "./components/landing/landing";
 import Profile from "./components/profile";
 import Locations from "./components/locations";
 import { refreshAuthToken } from "./actions/auth";
