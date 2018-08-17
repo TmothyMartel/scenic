@@ -4,7 +4,9 @@ import { Route, withRouter } from "react-router-dom";
 
 import NavBar from "./components/nav-bar";
 import Landing from "./components/landing/landing";
-import Profile from "./components/profile";
+import Profile from "./components/profile/profile";
+import Login from "./components/forms/login";
+import SignUp from "./components/forms/signup";
 import Locations from "./components/locations";
 import { refreshAuthToken } from "./actions/auth";
 
@@ -45,6 +47,8 @@ export class App extends React.Component {
 				<Route exact path="/" component={Landing} />
 				<Route exact path="/profile" component={Profile} />
 				<Route exact path="/locations" component={Locations} />
+				<Route exact path="/login" component={Login} />
+				<Route exact path="/signup" component={SignUp} />
 			</div>
 		);
 	}
