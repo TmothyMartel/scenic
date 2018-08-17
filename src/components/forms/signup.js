@@ -1,23 +1,38 @@
 import React from "react";
 import { reduxForm, Field, SubmissionError, focus } from "redux-form";
 import Input from "./input";
-import {required, nonEmpty, matches, length, isTrimmed} from '../../validators';
+import { login } from "../../actions/auth";
+import { registerUser } from "../../actions/users";
+import {
+	required,
+	nonEmpty,
+	email,
+	matches,
+	length,
+	isTrimmed
+} from "../../validators";
 import "./css/forms.css";
-const passwordLength = length({min: 8, max: 72});
-const matchesPassword = matches('password');
+const passwordLength = length({ min: 8, max: 72 });
+const matchesPassword = matches("password");
 
 export class SignUp extends React.Component {
 	onSubmit(values) {
-		const {name, email, username, password, about} = values;
-		const user = {username, email, about, password, name}
+		const { name, email, username, password, about } = values;
+		const user = { username, email, about, password, name };
+		return this.props
+			.dispatch(registerUser(user))
+			.then(() => this.props.dispatch(login(username, password)));
 	}
 
 	render() {
 		return (
 			<section role="region" className="wrapper">
 				<h1>Sign Up</h1>
-				<form onSubmit={this.props.handleSubmit(values => this.onSubmit(values)
-				)}>
+				<form
+					onSubmit={this.props.handleSubmit(values =>
+						this.onSubmit(values)
+					)}
+				>
 					<Field
 						name="name"
 						type="text"
@@ -32,13 +47,19 @@ export class SignUp extends React.Component {
 						validate={[required, nonEmpty]}
 					/>
 					<Field
+						name="image"
+						type="text"
+						component={Input}
+						label="Image url"
+					/>
+					<Field
 						name="about"
 						type="textarea"
 						component={Input}
 						label="About"
 					/>
 					<Field
-						className="login-input"
+						className="form-input"
 						name="username"
 						type="text"
 						component={Input}
@@ -46,7 +67,7 @@ export class SignUp extends React.Component {
 						validate={[required, nonEmpty, isTrimmed]}
 					/>
 					<Field
-						className="login-input"
+						className="form-input"
 						name="password"
 						type="password"
 						component={Input}
@@ -54,7 +75,7 @@ export class SignUp extends React.Component {
 						validate={[required, passwordLength, isTrimmed]}
 					/>
 					<Field
-						className="login-input"
+						className="form-input"
 						name="confirm"
 						type="password"
 						component={Input}
@@ -72,6 +93,6 @@ export class SignUp extends React.Component {
 
 export default reduxForm({
 	form: "signup",
-	onSubmitFail: (errors, dispatch) => 
-	dispatch(focus('signup', Object.keys(errors)[0]))
+	onSubmitFail: (errors, dispatch) =>
+		dispatch(focus("signup", Object.keys(errors)[0]))
 })(SignUp);

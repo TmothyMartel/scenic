@@ -9,14 +9,14 @@ export class Login extends React.Component {
 				<h1>Login</h1>
 				<form>
 					<Field
-						className="login-input"
-						name="username"
+						className="form-input"
+						name="Username"
 						type="text"
 						component={Input}
 						label="username"
 					/>
 					<Field
-						className="login-input"
+						className="form-input"
 						name="password"
 						type="password"
 						component={Input}

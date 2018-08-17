@@ -7,6 +7,7 @@ import Landing from "./components/landing/landing";
 import Profile from "./components/profile/profile";
 import Login from "./components/forms/login";
 import SignUp from "./components/forms/signup";
+import Create from "./components/forms/create";
 import Locations from "./components/locations";
 import { refreshAuthToken } from "./actions/auth";
 
@@ -49,6 +50,7 @@ export class App extends React.Component {
 				<Route exact path="/locations" component={Locations} />
 				<Route exact path="/login" component={Login} />
 				<Route exact path="/signup" component={SignUp} />
+				<Route exact path="/create" component={Create} />
 			</div>
 		);
 	}
