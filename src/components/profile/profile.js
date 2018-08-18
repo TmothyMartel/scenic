@@ -1,6 +1,6 @@
 import React from "react";
 import defaultImage from "./images/user.svg";
-import AddLocations from "./add-location";
+import AddLocations from "./add-locations";
 import FavLocations from "./fav-locations";
 import "./css/profile.css";
 export default function Profile(props) {

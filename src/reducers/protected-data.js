@@ -19,7 +19,7 @@ const initialState = {
 			},
 			title: "harlem meer",
 			description: "blah blah",
-			image: harlemMeer
+			image: "/images/harlem-meer.jpg"
 		},
 		{
 			coordinates: {
@@ -28,7 +28,7 @@ const initialState = {
 			},
 			title: "Little Red Lighthouse",
 			description: "blah blah",
-			image: lighthouse
+			image: "/images/lightblur.jpg"
 		},
 		{
 			coordinates: {
@@ -46,7 +46,7 @@ const initialState = {
 			},
 			title: "Brooklyn Bridge",
 			description: "blah blah",
-			image: bkBridge
+			image: "/images/bkBridge.jpg"
 		},
 		{
 			coordinates: {
