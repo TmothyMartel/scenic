@@ -2,12 +2,7 @@ import {
 	FETCH_PROTECTED_DATA_SUCCESS,
 	FETCH_PROTECTED_DATA_ERROR
 } from "../actions/protected-data";
-import harlemMeer from "../images/harlem-meer.jpg";
-import lighthouse from "../images/lightblur.jpg";
-import longIsle from "../images/longisle.jpg";
-import bkBridge from "../images/bkBridge.jpg";
-import prospectPark from "../images/prospectpark.jpg";
-import rooseveltIsland from "../images/roosevelt-isle.jpg";
+
 const initialState = {
 	data: "",
 	error: null,
@@ -37,7 +32,7 @@ const initialState = {
 			},
 			title: "Long Island City",
 			description: "blah blah",
-			image: longIsle
+			image: "/images/longisle.jpg"
 		},
 		{
 			coordinates: {
@@ -55,7 +50,7 @@ const initialState = {
 			},
 			title: "Prospect Park",
 			description: "blah blah",
-			image: prospectPark
+			image: "/images/prospectpark.jpg"
 		},
 		{
 			coordinates: {
@@ -64,7 +59,7 @@ const initialState = {
 			},
 			title: "Roosevelt Island",
 			description: "blah blah",
-			image: rooseveltIsland
+			image: "/images/roosevelt-isle.jpg"
 		}
 	]
 };

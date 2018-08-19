@@ -8,15 +8,19 @@ export class Locations extends React.Component {
 	componentDidMount() {
 		//this.props.dispatch(fetchProtectedData());
 	}
+
 	render() {
 		console.log(this.props.locations);
 		const locations = this.props.locations.map((location, index) => (
-			<li className="item-wrapper" key={index}>
-				<img
-					className="item"
-					src={API_BASE_URL + location.image}
-					alt=""
-				/>
+			<li
+				className="item-wrapper"
+				style={{
+					background: `url(${API_BASE_URL + location.image})`,
+					backgroundSize: "cover",
+					backgroundPosition: "center"
+				}}
+				key={index}
+			>
 				<p>{location.title}</p>
 			</li>
 		));
@@ -38,4 +42,3 @@ const mapStateToProps = state => {
 
 export default connect(mapStateToProps)(Locations);
 
-//

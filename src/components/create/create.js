@@ -1,8 +1,8 @@
 import React from "react";
 import { reduxForm, Field, SubmissionError, focus } from "redux-form";
-import Input from "./input";
+import Input from "../input";
 import { required, nonEmpty } from "../../validators";
-import "./css/forms.css";
+import "../css/forms.css";
 
 export class Create extends React.Component {
 	onSubmit(values) {

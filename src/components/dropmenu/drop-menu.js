@@ -32,10 +32,10 @@ export default class DropMenu extends React.Component {
 				<div className="button" onClick={this.showDropMenu} />
 
 				{this.state.displayMenu ? (
-					<ul>
-						<li>profile</li>
-						<li>locations</li>
-						<li>logout</li>
+					<ul className="menu">
+						<li className="link">profile</li>
+						<li className="link">locations</li>
+						<li className="link">logout</li>
 					</ul>
 				) : null}
 			</div>

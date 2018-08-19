@@ -20,3 +20,7 @@ input {
 	color: #fff;
 	background-color: #242323;
 }
+
+.form-error {
+	color: rgb(255, 72, 72);
+}

@@ -5,10 +5,11 @@ import { Route, withRouter } from "react-router-dom";
 import NavBar from "./components/nav-bar";
 import Landing from "./components/landing/landing";
 import Profile from "./components/profile/profile";
-import Login from "./components/forms/login";
-import SignUp from "./components/forms/signup";
-import Create from "./components/forms/create";
+import Login from "./components/login/login";
+import SignUp from "./components/signup/signup";
+import Create from "./components/create/create";
 import Locations from "./components/locations";
+import Detail from "./components/detail/detail";
 import { refreshAuthToken } from "./actions/auth";
 
 export class App extends React.Component {
@@ -51,6 +52,7 @@ export class App extends React.Component {
 				<Route exact path="/login" component={Login} />
 				<Route exact path="/signup" component={SignUp} />
 				<Route exact path="/create" component={Create} />
+				<Route exact path="/detail" component={Detail} />
 			</div>
 		);
 	}
