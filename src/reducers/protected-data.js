@@ -6,6 +6,7 @@ import {
 const initialState = {
 	data: "",
 	error: null,
+	displayMenu: false,
 	locations: [
 		{
 			coordinates: {

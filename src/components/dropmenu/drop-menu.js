@@ -1,4 +1,7 @@
 import React from "react";
+//import { connect } from "react-redux";
+//import { fetchProtectedData } from "../actions/protected-data";
+import { Link } from "react-router-dom";
 import "./drop-menu.css";
 import menu from "../../images/menu.svg";
 export default class DropMenu extends React.Component {
@@ -33,13 +36,22 @@ export default class DropMenu extends React.Component {
 
 				{this.state.displayMenu ? (
 					<ul className="menu">
-						<li className="link">profile</li>
-						<li className="link">locations</li>
-						<li className="link">logout</li>
+						<Link className="link" to="/profile">
+							<li>profile</li>
+						</Link>
+						<Link className="link" to="/locations">
+							<li>locations</li>
+						</Link>
+						<Link className="link" to="/signup">
+							<li>sign up</li>
+						</Link>
+						<Link className="link" to="/login">
+							<li>login</li>
+						</Link>
+						<li className="logout">logout</li>
 					</ul>
 				) : null}
 			</div>
 		);
 	}
 }
-

@@ -22,18 +22,21 @@
      text-decoration: none;
 }
 
-.link {
+.link li,
+.logout {
      padding: 8px 16px;
      border-bottom: 1px solid #e5e5e5;
 }
 .link:last-child {
      border-bottom: none;
 }
-.link:hover {
-     background-color: #e5e5e5;
-     color: white;
+.link li:hover,
+.logout:hover {
+     background-color: rgba(249, 245, 245, 0.7);
+     color: #2b2b2b;
 }
 .button {
+     cursor: pointer;
      width: 31px;
      margin-left: 30px;
      height: 45px;

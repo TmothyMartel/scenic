@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import { fetchProtectedData } from "../actions/protected-data";
 import "./css/locations.css";
 import { API_BASE_URL } from "../config";
@@ -12,17 +13,19 @@ export class Locations extends React.Component {
 	render() {
 		console.log(this.props.locations);
 		const locations = this.props.locations.map((location, index) => (
-			<li
-				className="item-wrapper"
-				style={{
-					background: `url(${API_BASE_URL + location.image})`,
-					backgroundSize: "cover",
-					backgroundPosition: "center"
-				}}
-				key={index}
-			>
-				<p>{location.title}</p>
-			</li>
+			<Link to="/detail">
+				<li
+					className="item-wrapper"
+					style={{
+						background: `url(${API_BASE_URL + location.image})`,
+						backgroundSize: "cover",
+						backgroundPosition: "center"
+					}}
+					key={index}
+				>
+					<p>{location.title}</p>
+				</li>
+			</Link>
 		));
 		return (
 			<div className="container">
@@ -41,4 +44,3 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps)(Locations);
-
