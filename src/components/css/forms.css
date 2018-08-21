@@ -6,7 +6,7 @@
 
 .form-input {
 	text-align: left;
-	margin-top:25px;
+	margin-top: 25px;
 }
 
 .form-input label {
@@ -15,19 +15,20 @@
 
 input {
 	background-color: #232424;
-    color: #fff;
-    display: block;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    width: 100%;
+	outline: none;
+	color: #fff;
+	display: block;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	width: 100%;
 	border-style: none;
 	border-right: 2px solid #fff;
-    border-bottom: 2px solid #fff;
+	border-bottom: 2px solid #fff;
 }
 
 .btn {
 	margin-top: 20px;
-    padding: 5px 15px;
+	padding: 5px 15px;
 	border: 2px solid #fff;
 	color: #fff;
 	background-color: #242323;
@@ -40,6 +41,6 @@ input {
 @media screen and (min-width: 420px) {
 	.wrapper {
 		/* width: 70%; */
-		max-width:420px;
+		max-width: 420px;
 	}
 }

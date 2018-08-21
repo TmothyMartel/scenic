@@ -1,13 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { fetchProtectedData } from "../actions/protected-data";
+import { fetchLocations } from "../actions/protected-data";
 import "./css/locations.css";
 import { API_BASE_URL } from "../config";
 
 export class Locations extends React.Component {
 	componentDidMount() {
-		//this.props.dispatch(fetchProtectedData());
+		this.props.dispatch(fetchLocations());
 	}
 
 	render() {
@@ -17,7 +17,7 @@ export class Locations extends React.Component {
 				<li
 					className="item-wrapper"
 					style={{
-						background: `url(${API_BASE_URL + location.image})`,
+						background: `url(${location.image})`,
 						backgroundSize: "cover",
 						backgroundPosition: "center"
 					}}
