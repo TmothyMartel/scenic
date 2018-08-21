@@ -37,33 +37,33 @@ export class SignUp extends React.Component {
 						name="name"
 						type="text"
 						component={Input}
-						label="Name"
+						label="Name:"
 					/>
 					<Field
 						name="email"
 						type="email"
 						component={Input}
-						label="Email Address"
+						label="Email Address:"
 						validate={[required, nonEmpty]}
 					/>
 					<Field
 						name="image"
 						type="text"
 						component={Input}
-						label="Image url"
+						label="Image url:"
 					/>
 					<Field
 						name="about"
 						type="textarea"
 						component={Input}
-						label="About"
+						label="About:"
 					/>
 					<Field
 						className="form-input"
 						name="username"
 						type="text"
 						component={Input}
-						label="Username"
+						label="Username:"
 						validate={[required, nonEmpty, isTrimmed]}
 					/>
 					<Field
@@ -71,7 +71,7 @@ export class SignUp extends React.Component {
 						name="password"
 						type="password"
 						component={Input}
-						label="Password"
+						label="Password:"
 						validate={[required, passwordLength, isTrimmed]}
 					/>
 					<Field
@@ -79,7 +79,7 @@ export class SignUp extends React.Component {
 						name="confirm"
 						type="password"
 						component={Input}
-						label="Confirm Password"
+						label="Confirm Password:"
 						validate={[required, nonEmpty, matchesPassword]}
 					/>
 					<button className="btn" type="submit">
