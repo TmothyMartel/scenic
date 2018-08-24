@@ -1,10 +1,15 @@
 .detail-img {
-	width: 100%;
+	width: 90%;
 	height: auto;
+}
+
+.icon-container {
+	text-align: right;
 }
 
 .like-icon {
 	width: 24px;
+	padding-right: 5px;
 }
 
 .title {

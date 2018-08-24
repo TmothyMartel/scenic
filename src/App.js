@@ -52,7 +52,7 @@ export class App extends React.Component {
 				<Route exact path="/login" component={Login} />
 				<Route exact path="/signup" component={SignUp} />
 				<Route exact path="/create" component={Create} />
-				<Route exact path="/detail" component={Detail} />
+				<Route exact path="/locations/:id" component={Detail} />
 			</div>
 		);
 	}

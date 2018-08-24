@@ -1,5 +1,6 @@
 import React from "react";
 import { reduxForm, Field, SubmissionError, focus } from "redux-form";
+import {Redirect} from 'react-router-dom';
 import Input from "./input";
 import { login } from "../actions/auth";
 import { registerUser } from "../actions/users";
@@ -17,12 +18,15 @@ const matchesPassword = matches("password");
 
 export class Form extends React.Component {
 
+	
+
 	onSubmit(values) {
 		const { name, email, username, password, about } = values;
 		const user = { username, email, about, password, name };
 		return this.props
 			.dispatch(registerUser(user))
 			.then(() => this.props.dispatch(login(username, password)));
+			//.then(() => this.props.history.push('/locations'));
 	}
 
 	render() {
@@ -94,5 +98,5 @@ export class Form extends React.Component {
 export default reduxForm({
 	form: "form",
 	onSubmitFail: (errors, dispatch) =>
-		dispatch(focus("signup", Object.keys(errors)[0]))
+		dispatch(focus("form", Object.keys(errors)[0]))
 })(Form);
