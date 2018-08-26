@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import requiresLogin from '../requires-login';
 import likeIcon from "../../images/like.svg";
 import "./detail.css";
 import { fetchSingleLocation, fetchLocations } from "../../actions/protected-data";
@@ -45,5 +46,5 @@ const mapStateToProps = state => {
 	};
 };
 
-export default connect(mapStateToProps)(Detail);
+export default requiresLogin()(connect(mapStateToProps)(Detail));
 

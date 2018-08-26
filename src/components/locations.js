@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import requiresLogin from './requires-login';
 import { Link } from "react-router-dom";
 import { fetchLocations } from "../actions/protected-data";
 import "./css/locations.css";
@@ -43,4 +44,4 @@ const mapStateToProps = state => {
 	};
 };
 
-export default connect(mapStateToProps)(Locations);
+export default requiresLogin()(connect(mapStateToProps)(Locations));

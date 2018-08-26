@@ -1,6 +1,7 @@
 import React from "react";
 import { reduxForm, Field, SubmissionError, focus } from "redux-form";
 import Input from "../input";
+import requiresLogin from '../requires-login';
 import { Link, Redirect } from 'react-router-dom'
 import { createLocation } from "../../actions/protected-data"
 import { required, nonEmpty } from "../../validators";
@@ -64,7 +65,7 @@ export class Create extends React.Component {
 	}
 }
 
-export default reduxForm({
+export default requiresLogin()(reduxForm({
 	form: "create",
 	 onSubmitFail: (errors, dispatch) => dispatch(focus("create", Object.keys(errors)[0]))
-})(Create);
+})(Create));
