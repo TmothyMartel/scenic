@@ -7,6 +7,6 @@ deploy:
   provider: heroku
   api_key:
     secure: e/eXBhvRItuA5E0XoLoNXOCBFS+rogOSIw9pIsT/ooNr0lnCi0vBbxDgjgVzr6t24P50tVupN0Kn/zB7A1WPCOnN6jKX/WPN5aBbApVslh7i/+U+vj1JQs/SuEmeZ3jglS+eOzzh+RW+53RfY30kOAAuFRUMXZf+27+czX1ICqCxSrps72HxP3p1E8Se3/hNK8cLToOeBR7i+51N2S1tUhP2FvDDMyqbzo/hfJLy53Zvcet4fczwOkHPWKT9jWkbG6asd8sjmFXNMpJoovyO8ZCOVkr3lUnQ7EG/v7b089OFgsAGh4Lkdpr4k9YmSmPlZr8zCN4NBeqyJU2simPwImpJsLyTtekrlxXmYluwWNGv2RU3dgeEOLXeYaK7af7xVnjVqdmidsRZoBkPmQnPYAPm10Mzt8B9c8NcNMuUrPU2GYyOYQisDcJf0uEeAt3jw3E0Rz779AHfLqC7+EGZ/YDCmCHo0eyiYbC6C3OYfVGFYayusk10xeMSZjN5zSJv+1ZrbqxGxByKtY/iyGnRDLf8kLiMgzxTEZTGaiQi3tMMA4UgAhW+qpdykWzmy9VbupXvMp1awuDFIzBD6sqmIUvFxCK9qHseupCVMoEZX3qVziOAp8/Z+JegoOZh0R6mZ0Xa11t6tD1XK1FKGp2u1pzTjYGLbzBBPIOOJ4ukg3Y=
-  app: hidden-sea-75061
+  app: scenic-client
   on:
     repo: TmothyMartel/scenic
