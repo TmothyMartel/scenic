@@ -1,14 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
-//import { fetchProtectedData } from "../actions/protected-data";
 import { Link } from "react-router-dom";
+import { clearAuth } from "../../actions/auth";
 import "./drop-menu.css";
 import menu from "../../images/menu.svg";
 import { showDropMenu } from "../../actions/dropmenu";
 
 export class DropMenu extends React.Component {
 	render() {
-		console.log(this.props.display);
 		return (
 			<div
 				className="dropdown"
@@ -30,7 +29,12 @@ export class DropMenu extends React.Component {
 						<Link className="link" to="/login">
 							<li>login</li>
 						</Link>
-						<li className="logout">logout</li>
+						<li
+							className="logout"
+							onClick={() => this.props.dispatch(clearAuth())}
+						>
+							logout
+						</li>
 					</ul>
 				) : null}
 			</div>
@@ -45,27 +49,3 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps)(DropMenu);
-
-// constructor() {
-// 		super();
-
-// 		this.state = {
-// 			displayMenu: false
-// 		};
-
-// 		this.showDropMenu = this.showDropMenu.bind(this);
-// 		this.hideDropMenu = this.hideDropMenu.bind(this);
-// 	}
-
-// 	showDropMenu(e) {
-// 		e.preventDefault();
-// 		this.setState({ displayMenu: true }, () => {
-// 			document.addEventListener("click", this.hideDropMenu);
-// 		});
-// 	}
-
-// 	hideDropMenu() {
-// 		this.setState({ displayMenu: false }, () => {
-// 			document.removeEventListener("click", this.hideDropMenu);
-// 		});
-// 	}

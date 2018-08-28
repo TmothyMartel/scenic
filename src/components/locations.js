@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import requiresLogin from './requires-login';
+import requiresLogin from "./requires-login";
 import { Link } from "react-router-dom";
 import { fetchLocations } from "../actions/protected-data";
 import "./css/locations.css";
@@ -13,7 +13,7 @@ export class Locations extends React.Component {
 	render() {
 		console.log(this.props.locations);
 		const locations = this.props.locations.map((location, index) => (
-			<Link to={`detail/${location.id}`}>
+			<Link to={`locations/${location.id}`} key={index}>
 				<li
 					className="item-wrapper"
 					style={{
@@ -21,7 +21,6 @@ export class Locations extends React.Component {
 						backgroundSize: "cover",
 						backgroundPosition: "center"
 					}}
-					key={index}
 				>
 					<p>{location.title}</p>
 				</li>
@@ -37,9 +36,7 @@ export class Locations extends React.Component {
 }
 
 const mapStateToProps = state => {
-	const { currentUser } = state.auth;
 	return {
-		username: state.auth.currentUser.username,
 		locations: state.protectedData.locations
 	};
 };

@@ -1,18 +1,16 @@
 import React from "react";
-import { reduxForm, Field, SubmissionError, focus } from "redux-form";
+import { reduxForm, Field, focus } from "redux-form";
 import Input from "../input";
-import {login} from '../../actions/auth'
+import { login } from "../../actions/auth";
 import "../css/forms.css";
-import {
-	required,
-	nonEmpty,
-} from "../../validators";
+import { required, nonEmpty } from "../../validators";
 
 export class Login extends React.Component {
 	onSubmit(values) {
 		const { username, password } = values;
-		return this.props.dispatch(login(values.username, values.password))
-		.then(() => this.props.history.push('/locations'));
+		return this.props
+			.dispatch(login(username, password))
+			.then(() => this.props.history.push("/locations"));
 	}
 	render() {
 		let error;
@@ -21,13 +19,17 @@ export class Login extends React.Component {
 				<div className="form-error" aria-live="polite">
 					{this.props.error}
 				</div>
-				)
+			);
 		}
 		return (
-			<section role="region" className="wrapper">
+			<section className="wrapper">
 				<h1> Login </h1>{" "}
-				<form onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
-				{error}
+				<form
+					onSubmit={this.props.handleSubmit(values =>
+						this.onSubmit(values)
+					)}
+				>
+					{error}
 					<Field
 						className="form-input"
 						name="username"
@@ -46,7 +48,10 @@ export class Login extends React.Component {
 						label="Password"
 						validate={[required, nonEmpty]}
 					/>
-					<button className="btn" disabled={this.props.pristine || this.props.submitting}>
+					<button
+						className="btn"
+						disabled={this.props.pristine || this.props.submitting}
+					>
 						Log In
 					</button>
 				</form>
@@ -57,5 +62,5 @@ export class Login extends React.Component {
 
 export default reduxForm({
 	form: "login",
-	onSubmitFail: (errors, dispatch) => dispatch(focus('login', 'username'))
+	onSubmitFail: (errors, dispatch) => dispatch(focus("login", "username"))
 })(Login);

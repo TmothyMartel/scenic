@@ -36,7 +36,7 @@ export function Profile(props) {
 }
 
 const mapStateToProps = state => {
-	// const { currentUser } = state.auth;
+	const { currentUser } = state.auth;
 	return {
 		currentUser: state.auth.currentUser
 	};

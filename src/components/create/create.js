@@ -1,9 +1,9 @@
 import React from "react";
-import { reduxForm, Field, SubmissionError, focus } from "redux-form";
+import { reduxForm, Field, focus } from "redux-form";
 import Input from "../input";
-import requiresLogin from '../requires-login';
-import { Link, Redirect } from 'react-router-dom'
-import { createLocation } from "../../actions/protected-data"
+import requiresLogin from "../requires-login";
+import { Link } from "react-router-dom";
+import { createLocation } from "../../actions/protected-data";
 import { required, nonEmpty } from "../../validators";
 import "../css/forms.css";
 
@@ -13,12 +13,12 @@ export class Create extends React.Component {
 		const location = { title, image, description, photoTips };
 		return this.props
 			.dispatch(createLocation(location))
-			.then(() => this.props.history.push('/locations'));	
+			.then(() => this.props.history.push("/locations"));
 	}
 
 	render() {
 		return (
-			<section role="region" className="wrapper">
+			<section className="wrapper">
 				<h1>Add a location</h1>
 				<form
 					onSubmit={this.props.handleSubmit(values =>
@@ -65,7 +65,10 @@ export class Create extends React.Component {
 	}
 }
 
-export default requiresLogin()(reduxForm({
-	form: "create",
-	 onSubmitFail: (errors, dispatch) => dispatch(focus("create", Object.keys(errors)[0]))
-})(Create));
+export default requiresLogin()(
+	reduxForm({
+		form: "create",
+		onSubmitFail: (errors, dispatch) =>
+			dispatch(focus("create", Object.keys(errors)[0]))
+	})(Create)
+);

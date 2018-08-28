@@ -58,10 +58,10 @@ export const login = (username, password) => dispatch => {
             // Reject any requests which don't return a 200 status, creating
             // errors which follow a consistent format
             .then(res => normalizeResponseErrors(res))
-            .then(res => {res.json();
-            })
+            .then(res => res.json())
             .then(({ authToken }) => storeAuthInfo(authToken, dispatch))
             .catch(err => {
+                console.log(err);
                 const { code } = err;
                 const message =
                     code === 401
@@ -82,7 +82,7 @@ export const login = (username, password) => dispatch => {
 export const refreshAuthToken = () => (dispatch, getState) => {
     dispatch(authRequest());
     const authToken = getState().auth.authToken;
-    return fetch(`${API_BASE_URL}/auth/refresh`, {
+    return fetch(`${API_BASE_URL}/api/auth/refresh`, {
         method: "POST",
         headers: {
             // Provide our existing token as credentials to get a new one
