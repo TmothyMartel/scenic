@@ -25,8 +25,8 @@ export class Form extends React.Component {
 		const user = { username, email, about, password, name };
 		return this.props
 			.dispatch(registerUser(user))
-			.then(() => this.props.dispatch(login(username, password)))
-			.then(() => this.props.history.push('/locations'));
+			//.then(() => this.props.dispatch(login(username, password)))
+			.then(() => this.props.history.push('/'));
 	}
 
 	render() {

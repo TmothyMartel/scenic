@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import requiresLogin from '../requires-login';
 import likeIcon from "../../images/like.svg";
 import "./detail.css";
-import { fetchSingleLocation, fetchLocations } from "../../actions/protected-data";
+import { fetchSingleLocation } from "../../actions/protected-data";
 import { API_BASE_URL } from "../../config";
 
 export class Detail extends React.Component {

@@ -4,7 +4,6 @@ import requiresLogin from './requires-login';
 import { Link } from "react-router-dom";
 import { fetchLocations } from "../actions/protected-data";
 import "./css/locations.css";
-import { API_BASE_URL } from "../config";
 
 export class Locations extends React.Component {
 	componentDidMount() {
@@ -38,8 +37,9 @@ export class Locations extends React.Component {
 }
 
 const mapStateToProps = state => {
-	// const { currentUser } = state.auth;
+	const { currentUser } = state.auth;
 	return {
+		username: state.auth.currentUser.username,
 		locations: state.protectedData.locations
 	};
 };

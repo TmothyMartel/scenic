@@ -3,8 +3,14 @@ import { reduxForm, Field, SubmissionError, focus } from "redux-form";
 import Input from "../input";
 import {login} from '../../actions/auth'
 import "../css/forms.css";
+import {
+	required,
+	nonEmpty,
+} from "../../validators";
+
 export class Login extends React.Component {
 	onSubmit(values) {
+		const { username, password } = values;
 		return this.props.dispatch(login(values.username, values.password))
 		.then(() => this.props.history.push('/locations'));
 	}
@@ -12,7 +18,7 @@ export class Login extends React.Component {
 		let error;
 		if (this.props.error) {
 			error = (
-				<div aria-live="polite">
+				<div className="form-error" aria-live="polite">
 					{this.props.error}
 				</div>
 				)
@@ -21,24 +27,29 @@ export class Login extends React.Component {
 			<section role="region" className="wrapper">
 				<h1> Login </h1>{" "}
 				<form onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
+				{error}
 					<Field
 						className="form-input"
-						name="Username"
+						name="username"
 						type="text"
+						id="username"
 						component={Input}
 						label="username"
+						validate={[required, nonEmpty]}
 					/>
 					<Field
 						className="form-input"
 						name="password"
 						type="password"
+						id="password"
 						component={Input}
 						label="Password"
+						validate={[required, nonEmpty]}
 					/>
-					<button className="btn" type="submit">
-						Submit{" "}
-					</button>{" "}
-				</form>{" "}
+					<button className="btn" disabled={this.props.pristine || this.props.submitting}>
+						Log In
+					</button>
+				</form>
 			</section>
 		);
 	}
