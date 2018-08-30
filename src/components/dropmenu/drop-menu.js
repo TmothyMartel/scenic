@@ -1,17 +1,17 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import LoginToggle from "./login-toggle";
 import { clearAuth } from "../../actions/auth";
 import "./drop-menu.css";
-import menu from "../../images/menu.svg";
-import { showDropMenu } from "../../actions/dropmenu";
+import { toggleDropMenu } from "../../actions/dropmenu";
 
 export class DropMenu extends React.Component {
 	render() {
 		return (
 			<div
 				className="dropdown"
-				onClick={() => this.props.dispatch(showDropMenu())}
+				onClick={() => this.props.dispatch(toggleDropMenu())}
 			>
 				<div className="button" />
 
@@ -26,15 +26,7 @@ export class DropMenu extends React.Component {
 						<Link className="link" to="/signup">
 							<li>sign up</li>
 						</Link>
-						<Link className="link" to="/login">
-							<li>login</li>
-						</Link>
-						<li
-							className="logout"
-							onClick={() => this.props.dispatch(clearAuth())}
-						>
-							logout
-						</li>
+						<LoginToggle />
 					</ul>
 				) : null}
 			</div>
@@ -49,3 +41,13 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps)(DropMenu);
+
+// <Link className="link" to="/login">
+// 							<li>login</li>
+// 						</Link>
+// 						<li
+// 							className="logout"
+// 							onClick={() => this.props.dispatch(clearAuth())}
+// 						>
+// 							logout
+// 						</li>

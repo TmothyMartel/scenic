@@ -1,19 +1,19 @@
 import React from "react";
 import { connect } from "react-redux";
-import requiresLogin from '../requires-login';
+import requiresLogin from "../requires-login";
 import likeIcon from "../../images/like.svg";
+import likedIcon from "../../images/liked.svg";
 import "./detail.css";
 import { fetchSingleLocation } from "../../actions/protected-data";
-import { API_BASE_URL } from "../../config";
 
 export class Detail extends React.Component {
 	componentDidMount() {
-		let id = this.props.match.params.id
+		let id = this.props.match.params.id;
 		this.props.dispatch(fetchSingleLocation(id));
 	}
 
 	render() {
-		console.log(this.props.singleLocation)
+		console.log(this.props.singleLocation);
 		return (
 			<div className="container">
 				<img
@@ -22,7 +22,11 @@ export class Detail extends React.Component {
 					alt={this.props.singleLocation.title}
 				/>
 				<div className="icon-container">
-				<img className="like-icon" src={likeIcon} alt="heart icon" />
+					<img
+						className="like-icon"
+						src={likedIcon}
+						alt="heart icon"
+					/>
 				</div>
 				<h2 className="title">{this.props.singleLocation.title}</h2>
 				<h3> About this Location</h3>
@@ -47,4 +51,3 @@ const mapStateToProps = state => {
 };
 
 export default requiresLogin()(connect(mapStateToProps)(Detail));
-

@@ -10,12 +10,11 @@ const matchesPassword = matches("password");
 
 export class Form extends React.Component {
 	onSubmit(values) {
-		const { name, email, username, password, about } = values;
-		const user = { username, email, about, password, name };
+		const { name, email, imageUrl, username, password, about } = values;
+		const user = { username, email, imageUrl, about, password, name };
 		return this.props
 			.dispatch(registerUser(user))
-			.then(() => this.props.dispatch(login(username, password)))
-			.then(() => this.props.history.push("/"));
+			.then(() => this.props.dispatch(login(username, password)));
 	}
 
 	render() {
@@ -39,7 +38,7 @@ export class Form extends React.Component {
 					validate={[required, nonEmpty]}
 				/>
 				<Field
-					name="image"
+					name="imageUrl"
 					type="text"
 					component={Input}
 					label="Image url:"
@@ -84,6 +83,5 @@ export class Form extends React.Component {
 
 export default reduxForm({
 	form: "form",
-	onSubmitFail: (errors, dispatch) =>
-		dispatch(focus("form", Object.keys(errors)[0]))
+	onSubmitFail: (errors, dispatch) => dispatch(focus("form", "username"))
 })(Form);

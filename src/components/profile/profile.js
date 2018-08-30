@@ -1,27 +1,25 @@
 import React from "react";
-import defaultImage from "./images/user.svg";
-import requiresLogin from '../requires-login';
-import { connect } from 'react-redux'
+import requiresLogin from "../requires-login";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import AddLocations from "./add-locations";
 import FavLocations from "./fav-locations";
 import "./css/profile.css";
 export function Profile(props) {
-	console.log(props.currentUser)
+	console.log(props.currentUser);
 	return (
-		<section className="container" role="region">
+		<section className="container">
 			<header>
 				<img
 					className="profile-img"
-					src={defaultImage}
-					alt="profile image"
+					src={props.currentUser.imageUrl}
+					alt="profile"
 				/>
-				<h1>User1234</h1>
+				<h1>{props.currentUser.username}</h1>
 				<button className="btn">Edit</button>
 			</header>
 			<article>
 				<h2>about</h2>
-				<p>lorem ipsum</p>
+				<p>{props.currentUser.about}</p>
 			</article>
 			<article>
 				<h3>Favorite Locations</h3>
@@ -36,10 +34,10 @@ export function Profile(props) {
 }
 
 const mapStateToProps = state => {
-	const { currentUser } = state.auth;
+	// const { currentUser } = state.auth;
 	return {
 		currentUser: state.auth.currentUser
 	};
 };
 
-export default requiresLogin()(connect(mapStateToProps)(Profile))
+export default requiresLogin()(connect(mapStateToProps)(Profile));

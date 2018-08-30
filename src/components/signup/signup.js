@@ -6,7 +6,7 @@ import "../css/forms.css";
 
 export function SignUp(props) {
 	return (
-		<section role="region" className="wrapper">
+		<section className="wrapper">
 			<h1>Sign Up</h1>
 			<Form />
 			<p>Already have an account?</p>
