@@ -11,7 +11,6 @@ export class Locations extends React.Component {
 	}
 
 	render() {
-		console.log(this.props.locations);
 		const locations = this.props.locations.map((location, index) => (
 			<Link to={`locations/${location.id}`} key={index}>
 				<li

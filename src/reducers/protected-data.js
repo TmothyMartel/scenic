@@ -2,14 +2,17 @@ import {
 	FETCH_LOCATIONS_SUCCESS,
 	FETCH_LOCATIONS_ERROR,
 	CREATE_LOCATION_SUCCESS,
-	FETCH_SINGLE_LOCATION_SUCCESS
+	FETCH_SINGLE_LOCATION_SUCCESS,
+	LIKE_LOCATION
 } from "../actions/protected-data";
 
 const initialState = {
 	data: "",
 	error: null,
 	locations: [],
-	singleLocation: {}
+	singleLocation: {},
+	liked: false,
+	likedLocations: []
 };
 
 export default function reducer(state = initialState, action) {
@@ -30,11 +33,14 @@ export default function reducer(state = initialState, action) {
 		return Object.assign({}, state, {
 			singleLocation: action.singleLocation
 		});
-		
+	} else if (action.type === LIKE_LOCATION) {
+		return Object.assign({}, state, {
+			liked: true,
+			likedLocations: action.likedLocations
+		});
 	}
 	return state;
 }
-
 
 // FindCoordinates
 // function geocodeSearch(state) {

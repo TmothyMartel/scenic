@@ -1,6 +1,7 @@
 .card {
 	border: 2px solid #fff;
 	color: #fff;
+	padding: 20px;
 }
 
 .card p {
@@ -12,4 +13,29 @@
 	display: block;
 	margin: 0 auto;
 	padding-top: 15px;
+}
+
+@media screen and (min-width: 420px) {
+	.card {
+		margin: 15px auto;
+		max-width: 390px;
+	}
+}
+
+@media screen and (min-width: 600px) {
+	.landing-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-rows: 1fr 1fr;
+	}
+
+	.card.two {
+		padding: 30px;
+		grid-column: 2;
+		grid-row: 2;
+	}
+
+	.card.three {
+		grid-column: 3;
+	}
 }

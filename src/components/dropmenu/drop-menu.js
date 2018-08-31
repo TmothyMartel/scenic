@@ -2,7 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import LoginToggle from "./login-toggle";
-import { clearAuth } from "../../actions/auth";
 import "./drop-menu.css";
 import { toggleDropMenu } from "../../actions/dropmenu";
 
@@ -23,9 +22,7 @@ export class DropMenu extends React.Component {
 						<Link className="link" to="/locations">
 							<li>locations</li>
 						</Link>
-						<Link className="link" to="/signup">
-							<li>sign up</li>
-						</Link>
+
 						<LoginToggle />
 					</ul>
 				) : null}
@@ -41,13 +38,3 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps)(DropMenu);
-
-// <Link className="link" to="/login">
-// 							<li>login</li>
-// 						</Link>
-// 						<li
-// 							className="logout"
-// 							onClick={() => this.props.dispatch(clearAuth())}
-// 						>
-// 							logout
-// 						</li>

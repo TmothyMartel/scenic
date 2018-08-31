@@ -21,9 +21,15 @@ export const createLocationSuccess = location => ({
 });
 
 export const FETCH_SINGLE_LOCATION_SUCCESS = "FETCH_SINGLE_LOCATION_SUCCESS";
-export const fetchSingleLocationSuccess = (singleLocation) => ({
+export const fetchSingleLocationSuccess = singleLocation => ({
     type: FETCH_SINGLE_LOCATION_SUCCESS,
     singleLocation
+});
+
+export const LIKE_LOCATION = "LIKE_LOCATION";
+export const likeLocation = likedLocations => ({
+    type: LIKE_LOCATION,
+    likedLocations
 });
 
 export const fetchLocations = () => (dispatch, getState) => {
@@ -54,25 +60,29 @@ export const fetchSingleLocation = id => (dispatch, getState) => {
     })
         .then(res => normalizeResponseErrors(res))
         .then(res => res.json())
-        .then(( singleLocation ) => dispatch(fetchSingleLocationSuccess(singleLocation)))
+        .then(singleLocation =>
+            dispatch(fetchSingleLocationSuccess(singleLocation))
+        )
         .catch(err => {
             dispatch(fetchLocationsError(err));
         });
 };
 
-export const createLocation = location => dispatch => {
+export const createLocation = location => (dispatch, getState) => {
+    const authToken = getState().auth.authToken;
     return fetch(`${API_BASE_URL}/api/locations`, {
         method: "POST",
         headers: {
-            "content-type": "application/json"
+            "content-type": "application/json",
+            Authorization: `Bearer ${authToken}`
         },
         body: JSON.stringify(location)
     })
         .then(res => normalizeResponseErrors(res))
         .then(res => res.json())
-        .then(data => console.log('success', data))
+        .then(data => console.log("success", data))
         .catch(err => {
-            console.log('error', err)
+            console.log("error", err);
             const { reason, message, location } = err;
             if (reason === "ValidationError") {
                 // Convert ValidationErrors into SubmissionErrors for Redux Form
@@ -85,6 +95,3 @@ export const createLocation = location => dispatch => {
             }
         });
 };
-
-
-

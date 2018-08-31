@@ -5,8 +5,8 @@ import diaphragm from "../images/camera-diaphragm.svg";
 import mCamera from "../images/m-camera.svg";
 export default function InfoBox(props) {
     return (
-        <section className="container">
-            <article className="card">
+        <section className="container landing-grid">
+            <article className="card one">
                 <img className="icon" src={tripod} alt="camera on a tripod" />
                 <p>
                     Sed ut perspiciatis unde omnis iste natus error sit
@@ -14,7 +14,7 @@ export default function InfoBox(props) {
                     aperiam, eaque ipsa quae ab illo inventore veritatis.
                 </p>
             </article>
-            <article className="card">
+            <article className="card two">
                 <img className="icon" src={diaphragm} alt="camera diaphragm" />
                 <p>
                     Sed ut perspiciatis unde omnis iste natus error sit
@@ -22,7 +22,7 @@ export default function InfoBox(props) {
                     aperiam, eaque ipsa quae ab illo inventore veritatis.
                 </p>
             </article>
-            <article className="card">
+            <article className="card three">
                 <img className="icon" src={mCamera} alt="mobile phone camera" />
                 <p>
                     Sed ut perspiciatis unde omnis iste natus error sit

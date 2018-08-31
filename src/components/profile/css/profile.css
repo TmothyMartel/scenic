@@ -4,3 +4,24 @@
 	border-radius: 50%;
 	margin: 10px auto;
 }
+
+.profile-container {
+	margin: 0 auto;
+	text-align: center;
+	max-width: 500px;
+}
+
+.profile-container h1 {
+	text-transform: capitalize;
+	font-size: 32px;
+}
+
+.about {
+	border-top: 2px solid #fff;
+	border-bottom: 2px solid #fff;
+	margin: 30px auto;
+}
+
+.about h2 {
+	text-align: left;
+}

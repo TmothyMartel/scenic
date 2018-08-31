@@ -5,9 +5,8 @@ import { Link } from "react-router-dom";
 import FavLocations from "./fav-locations";
 import "./css/profile.css";
 export function Profile(props) {
-	console.log(props.currentUser);
 	return (
-		<section className="container">
+		<section className="profile-container">
 			<header>
 				<img
 					className="profile-img"
@@ -17,8 +16,8 @@ export function Profile(props) {
 				<h1>{props.currentUser.username}</h1>
 				<button className="btn">Edit</button>
 			</header>
-			<article>
-				<h2>about</h2>
+			<article className="about">
+				<h2>About</h2>
 				<p>{props.currentUser.about}</p>
 			</article>
 			<article>
