@@ -4,6 +4,11 @@
 	padding: 20px;
 }
 
+.landing-grid {
+	width: 100%;
+	margin: 0 auto;
+}
+
 .card p {
 	padding: 10px 20px;
 }
@@ -16,26 +21,19 @@
 }
 
 @media screen and (min-width: 420px) {
+	.landing-grid {
+		width: 90%;
+	}
 	.card {
-		margin: 15px auto;
+		margin: 5px auto;
 		max-width: 390px;
 	}
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 700px) {
 	.landing-grid {
 		display: grid;
+		grid-gap: 15px;
 		grid-template-columns: 1fr 1fr 1fr;
-		grid-template-rows: 1fr 1fr;
-	}
-
-	.card.two {
-		padding: 30px;
-		grid-column: 2;
-		grid-row: 2;
-	}
-
-	.card.three {
-		grid-column: 3;
 	}
 }

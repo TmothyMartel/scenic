@@ -9,9 +9,9 @@ import { required, nonEmpty } from "../../validators";
 import "../css/forms.css";
 
 export class Create extends React.Component {
-	onSubmit(values, createdBy) {
+	onSubmit(values) {
 		const { title, image, description, photoTips } = values;
-		const location = { title, image, description, photoTips, createdBy };
+		const location = { title, image, description, photoTips };
 		return this.props
 			.dispatch(createLocation(location))
 			.then(() => console.log(location))
@@ -19,13 +19,12 @@ export class Create extends React.Component {
 	}
 
 	render() {
-		const user = this.props.currentUser.username;
 		return (
 			<section className="wrapper">
 				<h1>Add a location</h1>
 				<form
 					onSubmit={this.props.handleSubmit(values =>
-						this.onSubmit(values, user)
+						this.onSubmit(values)
 					)}
 				>
 					<Field

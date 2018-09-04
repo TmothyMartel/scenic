@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import FavLocations from "./fav-locations";
 import "./css/profile.css";
+
 export function Profile(props) {
 	return (
 		<section className="profile-container">

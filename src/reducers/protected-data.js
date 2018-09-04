@@ -3,7 +3,8 @@ import {
 	FETCH_LOCATIONS_ERROR,
 	CREATE_LOCATION_SUCCESS,
 	FETCH_SINGLE_LOCATION_SUCCESS,
-	LIKE_LOCATION
+	FETCH_FAVORITE_LOCATIONS_SUCCESS,
+	FAVORITE_LOCATION
 } from "../actions/protected-data";
 
 const initialState = {
@@ -11,8 +12,8 @@ const initialState = {
 	error: null,
 	locations: [],
 	singleLocation: {},
-	liked: false,
-	likedLocations: []
+	favorited: false,
+	favoriteLocations: []
 };
 
 export default function reducer(state = initialState, action) {
@@ -27,18 +28,24 @@ export default function reducer(state = initialState, action) {
 		});
 	} else if (action.type === CREATE_LOCATION_SUCCESS) {
 		return Object.assign({}, state, {
-			locations: action.location
+			locations: action.location,
+			error: null
 		});
 	} else if (action.type === FETCH_SINGLE_LOCATION_SUCCESS) {
 		return Object.assign({}, state, {
-			singleLocation: action.singleLocation
+			singleLocation: action.singleLocation,
+			error: null
 		});
-	} else if (action.type === LIKE_LOCATION) {
+	} else if (action.type === FAVORITE_LOCATION) {
 		return Object.assign({}, state, {
-			liked: true,
-			likedLocations: action.likedLocations
+			favorited: true
 		});
 	}
+	//else if (action.type === FETCH_FAVORITE_LOCATIONS_SUCCESS) {
+	// 	return Object.assign({}, state, {
+	// 		favoriteLocations: action.favoriteLocations
+	// 	});
+	// }
 	return state;
 }
 

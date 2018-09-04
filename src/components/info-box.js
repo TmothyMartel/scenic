@@ -5,7 +5,7 @@ import diaphragm from "../images/camera-diaphragm.svg";
 import mCamera from "../images/m-camera.svg";
 export default function InfoBox(props) {
     return (
-        <section className="container landing-grid">
+        <section className="landing-grid">
             <article className="card one">
                 <img className="icon" src={tripod} alt="camera on a tripod" />
                 <p>

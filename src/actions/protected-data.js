@@ -26,10 +26,17 @@ export const fetchSingleLocationSuccess = singleLocation => ({
     singleLocation
 });
 
-export const LIKE_LOCATION = "LIKE_LOCATION";
-export const likeLocation = likedLocations => ({
-    type: LIKE_LOCATION,
-    likedLocations
+export const FAVORITE_LOCATION = "FAVORITE_LOCATION";
+export const favoriteLocation = favorited => ({
+    type: FAVORITE_LOCATION,
+    favorited
+});
+
+export const FETCH_FAVORITE_LOCATIONS_SUCCESS =
+    "FETCH_FAVORITE_LOCATIONS_SUCCESS";
+export const fetchFavoriteLocationsSuccess = favoriteLocations => ({
+    type: FETCH_FAVORITE_LOCATIONS_SUCCESS,
+    favoriteLocations
 });
 
 export const fetchLocations = () => (dispatch, getState) => {
@@ -68,6 +75,23 @@ export const fetchSingleLocation = id => (dispatch, getState) => {
         });
 };
 
+export const fetchFavoriteLocations = () => (dispatch, getState) => {
+    const authToken = getState().auth.authToken;
+    return fetch(`${API_BASE_URL}/api/locations/favorites`, {
+        method: "GET",
+        headers: {
+            // Provide our auth token as credentials
+            Authorization: `Bearer ${authToken}`
+        }
+    })
+        .then(res => normalizeResponseErrors(res))
+        .then(res => res.json())
+        .then(({ locations }) => dispatch(fetchLocationsSuccess(locations)))
+        .catch(err => {
+            dispatch(fetchLocationsError(err));
+        });
+};
+
 export const createLocation = location => (dispatch, getState) => {
     const authToken = getState().auth.authToken;
     return fetch(`${API_BASE_URL}/api/locations`, {
@@ -94,4 +118,35 @@ export const createLocation = location => (dispatch, getState) => {
                 );
             }
         });
+};
+
+export const favoritedLocation = id => (dispatch, getState) => {
+    const authToken = getState().auth.authToken;
+    return (
+        fetch(`${API_BASE_URL}/api/locations/favorites/${id}`, {
+            method: "POST",
+            headers: {
+                "content-type": "application/json",
+                Authorization: `Bearer ${authToken}`
+            }
+            //body: JSON.stringify()
+        })
+            .then(res => normalizeResponseErrors(res))
+            //.then(res => res.json())
+            .then(data => console.log("success", data))
+            .then(favorited => dispatch(favoriteLocation(favorited)))
+            .catch(err => {
+                console.log("error", err);
+                const { reason, message, location } = err;
+                if (reason === "ValidationError") {
+                    // Convert ValidationErrors into SubmissionErrors for Redux Form
+
+                    return Promise.reject(
+                        new SubmissionError({
+                            [location]: message
+                        })
+                    );
+                }
+            })
+    );
 };

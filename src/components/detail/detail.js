@@ -2,9 +2,13 @@ import React from "react";
 import { connect } from "react-redux";
 import requiresLogin from "../requires-login";
 //import likeIcon from "../../images/like.svg";
-import likedIcon from "../../images/liked.svg";
+//import likedIcon from "../../images/liked.svg";
+//import LikeToggle from "./like-toggle";
 import "./detail.css";
-import { fetchSingleLocation } from "../../actions/protected-data";
+import {
+	fetchSingleLocation,
+	favoritedLocation
+} from "../../actions/protected-data";
 
 export class Detail extends React.Component {
 	componentDidMount() {
@@ -13,35 +17,49 @@ export class Detail extends React.Component {
 	}
 
 	render() {
-		console.log(this.props.singleLocation);
 		return (
-			<div className="container">
-				<img
-					className="detail-img"
-					src={this.props.singleLocation.image}
-					alt={this.props.singleLocation.title}
-				/>
-				<div>
-					<p>added by {this.props.singleLocation.createdBy}</p>
-				</div>
-				<div className="icon-container">
+			<div className="detail-container container">
+				<div className="sub-container">
+					<img
+						className="detail-img"
+						src={this.props.singleLocation.image}
+						alt={this.props.singleLocation.title}
+					/>
+
+					<p className="creator">
+						added by {this.props.singleLocation.createdBy}
+					</p>
 					<img
 						className="like-icon"
-						src={likedIcon}
+						src={
+							this.props.favorited
+								? "../images/red-heart.svg"
+								: "../images/white-heart.svg"
+						}
 						alt="heart icon"
+						onClick={() =>
+							this.props.dispatch(
+								favoritedLocation(this.props.match.params.id)
+							)
+						}
 					/>
 				</div>
+
 				<h2 className="title">{this.props.singleLocation.title}</h2>
-				<h3> About this Location</h3>
-				<p className="description">
-					{this.props.singleLocation.description}
-				</p>
-
-				<h3>map</h3>
-				<p>map embed here</p>
-
-				<h3>Photo ideas and opportunities</h3>
-				<p>tips go here</p>
+				<article className="about">
+					<h3> About this Location</h3>
+					<p className="description">
+						{this.props.singleLocation.description}
+					</p>
+				</article>
+				<article className="map">
+					<h3>map</h3>
+					<p className="map-content">map embed here</p>
+				</article>
+				<article className="tips">
+					<h3>Photo ideas and opportunities</h3>
+					<p className="tips-content">tips go here</p>
+				</article>
 			</div>
 		);
 	}
@@ -49,7 +67,8 @@ export class Detail extends React.Component {
 
 const mapStateToProps = state => {
 	return {
-		singleLocation: state.protectedData.singleLocation
+		singleLocation: state.protectedData.singleLocation,
+		favorited: state.protectedData.favorited
 	};
 };
 

@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import LoginToggle from "./login-toggle";
 import "./drop-menu.css";
 import { toggleDropMenu } from "../../actions/dropmenu";
@@ -16,13 +15,6 @@ export class DropMenu extends React.Component {
 
 				{this.props.display ? (
 					<ul className="menu">
-						<Link className="link" to="/profile">
-							<li>profile</li>
-						</Link>
-						<Link className="link" to="/locations">
-							<li>locations</li>
-						</Link>
-
 						<LoginToggle />
 					</ul>
 				) : null}
