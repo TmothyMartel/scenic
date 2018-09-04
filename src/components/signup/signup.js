@@ -5,14 +5,14 @@ import Form from "../form";
 import "../css/forms.css";
 
 export function SignUp(props) {
-	return (
-		<section className="wrapper">
-			<h1>Sign Up</h1>
-			<Form />
-			<p>Already have an account?</p>
-			<Link to="login">Login</Link>
-		</section>
-	);
+  return (
+    <section className="wrapper">
+      <h1>Sign Up</h1>
+      <Form history={props.history} />
+      <p>Already have an account?</p>
+      <Link to="login">Login</Link>
+    </section>
+  );
 }
 
 export default connect()(SignUp);
