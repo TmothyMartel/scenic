@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Route, withRouter } from "react-router-dom";
 
 import NavBar from "./components/nav-bar";
+import Footer from "./components/footer";
 import Landing from "./components/landing/landing";
 import Profile from "./components/profile/profile";
 import Login from "./components/login/login";
@@ -53,6 +54,7 @@ export class App extends React.Component {
 				<Route exact path="/signup" component={SignUp} />
 				<Route exact path="/create" component={Create} />
 				<Route exact path="/locations/:id" component={Detail} />
+				<Footer />
 			</div>
 		);
 	}
