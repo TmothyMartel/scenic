@@ -22,9 +22,9 @@ export function Profile(props) {
 				<p>{props.currentUser.about}</p>
 			</article>
 			<article>
-				<h3>Favorite Locations</h3>
+				<h2>Favorite Locations</h2>
 				<FavLocations />
-				<h3>Added Locations</h3>
+				<h2>Added Locations</h2>
 				<Link to="/create">
 					<button className="btn">Add Location</button>
 				</Link>

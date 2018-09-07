@@ -1,7 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 import requiresLogin from "../requires-login";
-import { fetchFavoriteLocations } from "../../actions/protected-data";
+import {
+	fetchFavoriteLocations,
+	fetchLocations
+} from "../../actions/protected-data";
 import { Link } from "react-router-dom";
 import "../css/locations.css";
 
@@ -11,26 +14,24 @@ export class FavLocations extends React.Component {
 	}
 
 	render() {
-		console.log(this.props.favoriteLocations);
 		const favoriteLocations = this.props.favoriteLocations.map(
-			(favoriteLocation, index) => (
-				<Link to={`locations/${favoriteLocation.id}`} key={index}>
+			(location, index) => (
+				<Link to={`locations/${location.id}`} key={index}>
 					<li
 						className="item-wrapper"
 						style={{
-							background: `url(${favoriteLocation.image})`,
+							background: `url(${location.image})`,
 							backgroundSize: "cover",
 							backgroundPosition: "center"
 						}}
 					>
-						<p>{favoriteLocation.title}</p>
+						<p>{location.title}</p>
 					</li>
 				</Link>
 			)
 		);
 		return (
-			<div className="container">
-				<h1>Locations</h1>
+			<div className="fav-container">
 				<ul className="list">{favoriteLocations}</ul>
 			</div>
 		);
@@ -44,3 +45,20 @@ const mapStateToProps = state => {
 };
 
 export default requiresLogin()(connect(mapStateToProps)(FavLocations));
+
+// const favoriteLocations = this.props.favoriteLocations.map(
+// 			(favoriteLocation, index) => (
+// 				<Link key={index}>
+// 					<li
+// 						className="item-wrapper"
+// 						style={{
+// 							background: `url(${favoriteLocation.image})`,
+// 							backgroundSize: "cover",
+// 							backgroundPosition: "center"
+// 						}}
+// 					>
+// 						<p>{favoriteLocations.title}</p>
+// 					</li>
+// 				</Link>
+// 			)
+// 		);

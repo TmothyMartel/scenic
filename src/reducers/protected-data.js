@@ -41,27 +41,27 @@ export default function reducer(state = initialState, action) {
         favorite: true
       })
     });
+  } else if (action.type === FETCH_FAVORITE_LOCATIONS_SUCCESS) {
+    return Object.assign({}, state, {
+      favoriteLocations: action.favoriteLocations,
+      error: null
+    });
   }
-  //else if (action.type === FETCH_FAVORITE_LOCATIONS_SUCCESS) {
-  // 	return Object.assign({}, state, {
-  // 		favoriteLocations: action.favoriteLocations
-  // 	});
-  // }
   return state;
 }
 
 // FindCoordinates
 // function geocodeSearch(state) {
-// 		var addressSearch = document.getElementById('address').value;
-// 		geocoder.geocode( { 'address': addressSearch}, function(results, status) {
-// 			if (status == 'OK') {
-// 				map.setCenter(results[0].geometry.location);
-// 				state.userLocation.lat = results[0].geometry.location.lat();
-// 				state.userLocation.lng = results[0].geometry.location.lng();
-// 				// get the wikipedia data now that the state var is updated
-// 				getWikiGeoData(state);
-// 			} else {
-// 				alert("Whoops, that address didn't work! Try searching by a city, state, or zipcode.");
-// 			}
-// 		});
-// 	}
+//    var addressSearch = document.getElementById('address').value;
+//    geocoder.geocode( { 'address': addressSearch}, function(results, status) {
+//      if (status == 'OK') {
+//        map.setCenter(results[0].geometry.location);
+//        state.userLocation.lat = results[0].geometry.location.lat();
+//        state.userLocation.lng = results[0].geometry.location.lng();
+//        // get the wikipedia data now that the state var is updated
+//        getWikiGeoData(state);
+//      } else {
+//        alert("Whoops, that address didn't work! Try searching by a city, state, or zipcode.");
+//      }
+//    });
+//  }

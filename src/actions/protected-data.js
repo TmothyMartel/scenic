@@ -77,23 +77,21 @@ export const fetchSingleLocation = id => (dispatch, getState) => {
 
 export const fetchFavoriteLocations = () => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
-  return (
-    fetch(`${API_BASE_URL}/api/locations/favorites`, {
-      method: "GET",
-      headers: {
-        // Provide our auth token as credentials
-        Authorization: `Bearer ${authToken}`
-      }
-    })
-      .then(res => normalizeResponseErrors(res))
-      .then(res => res.json())
-      .then(({ locations }) => console.log(locations))
-      // TODO fetch favorites success
-      //  .then(({ locations }) => dispatch(fetchLocationsSuccess(locations)))
-      .catch(err => {
-        dispatch(fetchLocationsError(err));
-      })
-  );
+  return fetch(`${API_BASE_URL}/api/locations/favorites`, {
+    method: "GET",
+    headers: {
+      // Provide our auth token as credentials
+      Authorization: `Bearer ${authToken}`
+    }
+  })
+    .then(res => normalizeResponseErrors(res))
+    .then(res => res.json())
+    .then(({ locations }) => dispatch(fetchFavoriteLocationsSuccess(locations)))
+    .then(({ locations }) => console.log(locations))
+    .catch(err => {
+      dispatch(fetchLocationsError(err));
+      console.log(err);
+    });
 };
 
 export const createLocation = location => (dispatch, getState) => {

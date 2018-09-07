@@ -6,9 +6,9 @@
 }
 
 .profile-container {
-	margin: 0 auto;
+	margin: 25px auto;
 	text-align: center;
-	max-width: 500px;
+	max-width: 600px;
 }
 
 .profile-container h1 {
@@ -18,10 +18,15 @@
 
 .about {
 	border-top: 2px solid #fff;
-	border-bottom: 2px solid #fff;
 	margin: 30px auto;
 }
 
-.about h2 {
+h2 {
 	text-align: left;
+}
+
+.about,
+.fav-container {
+	border-bottom: 2px solid #fff;
+	padding-bottom: 15px;
 }
