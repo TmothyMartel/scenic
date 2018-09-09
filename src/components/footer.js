@@ -6,6 +6,7 @@ export default function Footer(props) {
 		backgroundColor: "#353535",
 		height: "45px",
 		textAlign: "center",
+
 		width: "100%"
 	};
 

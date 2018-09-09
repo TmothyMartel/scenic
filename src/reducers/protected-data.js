@@ -2,6 +2,7 @@ import {
   FETCH_LOCATIONS_SUCCESS,
   FETCH_LOCATIONS_ERROR,
   CREATE_LOCATION_SUCCESS,
+  FETCH_CREATED_LOCATIONS_SUCCESS,
   FETCH_SINGLE_LOCATION_SUCCESS,
   FETCH_FAVORITE_LOCATIONS_SUCCESS,
   FAVORITE_LOCATION
@@ -12,7 +13,8 @@ const initialState = {
   error: null,
   locations: [],
   singleLocation: {},
-  favoriteLocations: []
+  favoriteLocations: [],
+  createdLocations: []
 };
 
 export default function reducer(state = initialState, action) {
@@ -28,6 +30,11 @@ export default function reducer(state = initialState, action) {
   } else if (action.type === CREATE_LOCATION_SUCCESS) {
     return Object.assign({}, state, {
       locations: action.location,
+      error: null
+    });
+  } else if (action.type === FETCH_CREATED_LOCATIONS_SUCCESS) {
+    return Object.assign({}, state, {
+      createdLocations: action.createdLocations,
       error: null
     });
   } else if (action.type === FETCH_SINGLE_LOCATION_SUCCESS) {

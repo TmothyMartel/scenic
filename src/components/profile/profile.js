@@ -3,6 +3,7 @@ import requiresLogin from "../requires-login";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import FavLocations from "./fav-locations";
+import AddedLocations from "./added-locations";
 import "./css/profile.css";
 
 export function Profile(props) {
@@ -25,6 +26,7 @@ export function Profile(props) {
 				<h2>Favorite Locations</h2>
 				<FavLocations />
 				<h2>Added Locations</h2>
+				<AddedLocations />
 				<Link to="/create">
 					<button className="btn">Add Location</button>
 				</Link>

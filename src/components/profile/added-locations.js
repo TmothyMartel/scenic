@@ -1,17 +1,17 @@
 import React from "react";
 import { connect } from "react-redux";
 import requiresLogin from "../requires-login";
-import { fetchFavoriteLocations } from "../../actions/protected-data";
 import { Link } from "react-router-dom";
+import { fetchCreatedLocations } from "../../actions/protected-data";
 import "../css/locations.css";
 
-export class FavLocations extends React.Component {
+export class AddedLocations extends React.Component {
 	componentDidMount() {
-		this.props.dispatch(fetchFavoriteLocations());
+		this.props.dispatch(fetchCreatedLocations());
 	}
 
 	render() {
-		const favoriteLocations = this.props.favoriteLocations.map(
+		const createdLocations = this.props.createdLocations.map(
 			(location, index) => (
 				<Link to={`locations/${location.id}`} key={index}>
 					<li
@@ -29,7 +29,7 @@ export class FavLocations extends React.Component {
 		);
 		return (
 			<div className="fav-container">
-				<ul className="list">{favoriteLocations}</ul>
+				<ul className="list">{createdLocations}</ul>
 			</div>
 		);
 	}
@@ -37,9 +37,10 @@ export class FavLocations extends React.Component {
 
 const mapStateToProps = state => {
 	return {
-		favoriteLocations: state.protectedData.favoriteLocations,
 		createdLocations: state.protectedData.createdLocations
 	};
 };
 
-export default requiresLogin()(connect(mapStateToProps)(FavLocations));
+export default requiresLogin()(connect(mapStateToProps)(AddedLocations));
+
+
