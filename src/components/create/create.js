@@ -20,7 +20,7 @@ export class Create extends React.Component {
 
 	render() {
 		return (
-			<section className="wrapper">
+			<section className="wrapper form-container">
 				<h1>Add a location</h1>
 				<form
 					onSubmit={this.props.handleSubmit(values =>

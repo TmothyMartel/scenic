@@ -1,4 +1,4 @@
-.wrapper {
+.form-container {
 	margin: 80px auto;
 	width: 90%;
 	text-align: center;
@@ -45,7 +45,7 @@ input {
 }
 
 @media screen and (min-width: 420px) {
-	.wrapper {
+	.form-container {
 		/* width: 70%; */
 		max-width: 420px;
 	}

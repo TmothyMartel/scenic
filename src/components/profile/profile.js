@@ -7,7 +7,7 @@ import "./css/profile.css";
 
 export function Profile(props) {
 	return (
-		<section className="profile-container">
+		<section className="wrapper profile-container">
 			<header>
 				<img
 					className="profile-img"

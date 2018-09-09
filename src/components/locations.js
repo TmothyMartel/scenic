@@ -26,7 +26,7 @@ export class Locations extends React.Component {
 			</Link>
 		));
 		return (
-			<div className="container">
+			<div className=" wrapper container">
 				<h1>Locations</h1>
 				<ul className="list">{locations}</ul>
 			</div>
