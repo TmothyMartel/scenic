@@ -59,7 +59,9 @@ export class Detail extends React.Component {
 				</article>
 				<article className="tips">
 					<h3>Photo ideas and opportunities</h3>
-					<p className="tips-content">tips go here</p>
+					<p className="tips-content">
+						{this.props.singleLocation.photoTips}
+					</p>
 				</article>
 			</div>
 		);

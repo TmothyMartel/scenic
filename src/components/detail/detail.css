@@ -46,12 +46,15 @@ h3 {
 
 .about {
 	grid-row: 4;
+	padding: 5px 5px 10px;
 }
 
 .map {
 	grid-row: 5;
+	padding: 5px 5px 10px;
 }
 
 .tips {
 	grid-row: 6;
+	padding: 5px 5px 10px;
 }

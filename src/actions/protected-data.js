@@ -164,7 +164,7 @@ export const favoritedLocation = id => (dispatch, getState) => {
     })
       .then(res => normalizeResponseErrors(res))
       //.then(res => res.json())
-      .then(data => console.log("success", data))
+      //.then(data => console.log("success", data))
       .then(favorited => dispatch(favoriteLocation(favorited)))
 
       .catch(err => {
