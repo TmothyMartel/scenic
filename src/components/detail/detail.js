@@ -1,9 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import requiresLogin from "../requires-login";
-//import likeIcon from "../../images/like.svg";
-//import likedIcon from "../../images/liked.svg";
-//import LikeToggle from "./like-toggle";
+import Map from './map';
 import "./detail.css";
 import {
 	fetchSingleLocation,
@@ -55,7 +53,7 @@ export class Detail extends React.Component {
 				</article>
 				<article className="map">
 					<h3>map</h3>
-					<p className="map-content">map embed here</p>
+					<Map />
 				</article>
 				<article className="tips">
 					<h3>Photo ideas and opportunities</h3>
@@ -65,7 +63,7 @@ export class Detail extends React.Component {
 		);
 	}
 }
-
+// have the edit form render on this page , replace text view populate fields. also include delete button and modal.
 const mapStateToProps = state => {
 	return {
 		singleLocation: state.protectedData.singleLocation,

@@ -46,6 +46,19 @@ export const fetchFavoriteLocationsSuccess = favoriteLocations => ({
   favoriteLocations
 });
 
+export const UPDATE_LOCATION_SUCCESS = "UPDATE_LOCATION_SUCCESS";
+export const updateLocationSuccess = updatedLocation => ({
+  type: UPDATE_LOCATION_SUCCESS,
+  updatedLocation
+})
+
+export const DELETE_LOCATION_SUCCESS = "DELETE_LOCATION_SUCCESS";
+export const deleteLocationSuccess = () => ({
+  type: DELETE_LOCATION_SUCCESS
+})
+
+
+//API fetch actions
 export const fetchLocations = () => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
   return fetch(`${API_BASE_URL}/api/locations`, {

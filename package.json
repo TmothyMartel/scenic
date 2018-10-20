@@ -5,6 +5,7 @@
   "dependencies": {
     "cors": "^2.8.4",
     "jwt-decode": "^2.2.0",
+    "node-geocoder": "^3.22.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-redux": "^5.0.7",
