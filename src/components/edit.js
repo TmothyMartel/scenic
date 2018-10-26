@@ -10,7 +10,7 @@ export function Edit(props) {
 	
 		return (
 			<section role="region" className="wrapper">
-				<h1>Edit Profile</h1>
+				<h1>Edit location</h1>
 				<Form />
 			</section>
 		);
